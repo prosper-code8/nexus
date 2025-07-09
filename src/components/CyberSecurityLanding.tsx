@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Shield, Lock, Monitor, Database, Users, CheckCircle, ArrowRight, Menu, X, Globe, Mail, Phone, MapPin } from 'lucide-react';
 
@@ -240,6 +239,78 @@ const CyberSecurityLanding = () => {
                   alt="Cybersecurity Team" 
                   className="w-full h-auto rounded-lg"
                 />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Team Section */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Who we are</h2>
+            <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+              We are a curated team of international experts united by a single goal: to create category-
+              defining brands and digital experiences that make an impact, shape culture and connect
+              people.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-blue-500 transition-colors">
+              <div className="aspect-square bg-gray-700">
+                <img 
+                  src="https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=400&h=400&fit=crop&crop=face" 
+                  alt="Lindsay Smith - Founder & CEO" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-1">Lindsay Smith</h3>
+                <p className="text-blue-400 text-sm">Founder + CEO</p>
+              </div>
+            </div>
+            
+            <div className="bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-purple-500 transition-colors">
+              <div className="aspect-square bg-gray-700">
+                <img 
+                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face" 
+                  alt="Brian Thomas - Partner & Executive Creative Director" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-1">Brian Thomas</h3>
+                <p className="text-purple-400 text-sm">Partner + Executive Creative Director</p>
+              </div>
+            </div>
+            
+            <div className="bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-green-500 transition-colors">
+              <div className="aspect-square bg-gray-700">
+                <img 
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" 
+                  alt="James Voth - CTO" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-1">James Voth</h3>
+                <p className="text-green-400 text-sm">CTO</p>
+              </div>
+            </div>
+            
+            <div className="bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-yellow-500 transition-colors">
+              <div className="aspect-square bg-gray-700">
+                <img 
+                  src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop&crop=face" 
+                  alt="Prem Sai Samani - VP Strategy" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-1">Prem Sai Samani</h3>
+                <p className="text-yellow-400 text-sm">VP Strategy</p>
               </div>
             </div>
           </div>

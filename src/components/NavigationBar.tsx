@@ -1,16 +1,25 @@
 
 import React, { useState } from 'react';
 import { Home, Folder, UserPlus, BarChart3, Menu, X } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 
 const NavigationBar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   const navItems = [
-    { name: 'Home', icon: <Home size={20} />, href: '#home' },
-    { name: 'Projects', icon: <Folder size={20} />, href: '#projects' },
-    { name: 'Signup', icon: <UserPlus size={20} />, href: '#signup' },
-    { name: 'Dashboard', icon: <BarChart3 size={20} />, href: '#dashboard' }
+    { name: 'Home', icon: <Home size={20} />, href: '/' },
+    { name: 'Projects', icon: <Folder size={20} />, href: '/projects' },
+    { name: 'Signup', icon: <UserPlus size={20} />, href: '/signup' },
+    { name: 'Dashboard', icon: <BarChart3 size={20} />, href: '/dashboard' }
   ];
+
+  const isActiveRoute = (href: string) => {
+    if (href === '/') {
+      return location.pathname === '/';
+    }
+    return location.pathname.startsWith(href);
+  };
 
   return (
     <nav className="bg-card border-b border-border sticky top-0 z-50">
@@ -23,20 +32,26 @@ const NavigationBar = () => {
               alt="Nexus Solutions logo" 
               className="w-8 h-8 rounded"
             />
-            <span className="text-xl font-bold text-foreground">Nexus Solutions</span>
+            <Link to="/" className="text-xl font-bold text-foreground hover:text-primary transition-colors">
+              Nexus Solutions
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.name}
-                href={item.href}
-                className="flex items-center space-x-2 text-muted-foreground hover:text-foreground transition-colors px-3 py-2 rounded-md hover:bg-muted"
+                to={item.href}
+                className={`flex items-center space-x-2 px-3 py-2 rounded-md transition-colors ${
+                  isActiveRoute(item.href)
+                    ? 'text-primary bg-primary/10'
+                    : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+                }`}
               >
                 {item.icon}
                 <span className="font-medium">{item.name}</span>
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -56,15 +71,19 @@ const NavigationBar = () => {
           <div className="md:hidden border-t border-border">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.name}
-                  href={item.href}
-                  className="flex items-center space-x-3 text-muted-foreground hover:text-foreground block px-3 py-2 rounded-md hover:bg-muted transition-colors"
+                  to={item.href}
+                  className={`flex items-center space-x-3 px-3 py-2 rounded-md transition-colors ${
+                    isActiveRoute(item.href)
+                      ? 'text-primary bg-primary/10'
+                      : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+                  }`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.icon}
                   <span className="font-medium">{item.name}</span>
-                </a>
+                </Link>
               ))}
             </div>
           </div>

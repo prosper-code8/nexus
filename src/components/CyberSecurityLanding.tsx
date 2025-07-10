@@ -1,11 +1,128 @@
+
 import React from 'react';
-import { Shield, Lock, Monitor, Database, Users, CheckCircle, ArrowRight, Menu, X, Globe, Mail, Phone, MapPin } from 'lucide-react';
+import { Shield, Lock, Monitor, Database, Users, CheckCircle, ArrowRight, Menu, X, Globe, Mail, Phone, MapPin, ChevronDown, ChevronUp } from 'lucide-react';
 import NavigationBar from './NavigationBar';
 
 const CyberSecurityLanding = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [expandedService, setExpandedService] = React.useState<string | null>(null);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  
+  const toggleService = (serviceName: string) => {
+    setExpandedService(expandedService === serviceName ? null : serviceName);
+  };
+
+  const services = [
+    {
+      id: 'data-protection',
+      title: 'Data Protection',
+      icon: Shield,
+      description: 'Advanced encryption and security protocols to protect your sensitive business data from unauthorized access.',
+      details: {
+        covers: [
+          'Encryption: We use industry-standard encryption (AES-256 and SSL/TLS) to secure data at rest and in transit.',
+          'Access Control: Only authorized users can access your data through multi-factor authentication (MFA), user role management, and audit logging.',
+          'Data Loss Prevention (DLP): Tools to detect and prevent sensitive data from being shared or leaked unintentionally.',
+          'Compliance Ready: Support for GDPR, HIPAA, and other compliance frameworks to keep your business legally protected.'
+        ],
+        prompt: 'Protect your data from prying eyes. We secure your business with cutting-edge encryption, strict access control, and smart data loss prevention. Learn how we help you meet industry standards like GDPR and HIPAA — all while keeping your operations running smoothly.'
+      }
+    },
+    {
+      id: 'network-security',
+      title: 'Network Security',
+      icon: Monitor,
+      description: 'Comprehensive network monitoring and protection against intrusions and malicious activities.',
+      details: {
+        covers: [
+          'Intrusion Detection & Prevention (IDS/IPS): Monitors for suspicious activity and blocks threats in real time.',
+          'Firewall Management: Configures and maintains firewalls to filter incoming and outgoing traffic.',
+          'Endpoint Security: Secures all devices (laptops, phones, etc.) connected to your network against malware and ransomware.',
+          'Network Traffic Analysis: Detects anomalies, unauthorized access attempts, or unusual patterns early.'
+        ],
+        prompt: 'Guard your network 24/7. We monitor every digital door and window. From firewalls to intrusion detection, our network protection ensures cybercriminals stay out — and your data stays in.'
+      }
+    },
+    {
+      id: 'backup-solutions',
+      title: 'Backup Solutions',
+      icon: Database,
+      description: 'Reliable backup and recovery systems to ensure your data is always safe and accessible.',
+      details: {
+        covers: [
+          'Automated Backups: Scheduled backups that run without disrupting your work.',
+          'Redundant Storage: Data is backed up to multiple secure locations (on-prem, cloud, or hybrid).',
+          'Fast Recovery: Get your files back quickly after system failure, deletion, or cyberattacks.',
+          'Disaster Recovery Planning: Full strategies in place so you\'re not caught off guard by natural disasters, human error, or cyber incidents.'
+        ],
+        prompt: 'Never lose your data again. Whether it\'s accidental deletion or a full-on ransomware attack, our backup and recovery systems keep your data safe and your business moving. Let\'s build a recovery plan that works for you.'
+      }
+    }
+  ];
+
+  const procedures = [
+    {
+      id: 'assessment',
+      number: '01',
+      title: 'Assessment',
+      description: 'Comprehensive security audit and vulnerability assessment of your systems.',
+      details: {
+        covers: [
+          'Security Audits: Full review of your current systems to identify weaknesses, misconfigurations, and outdated software.',
+          'Vulnerability Scanning: Uses automated tools and manual techniques to find known vulnerabilities.',
+          'Penetration Testing (Optional): Simulated attacks to test how well your systems hold up against real-world threats.',
+          'Reporting: Clear documentation of risks with recommendations ranked by severity.'
+        ],
+        prompt: 'Where are your systems exposed? We\'ll identify blind spots, misconfigurations, and weaknesses before attackers do. Our thorough security audit gives you a clear picture of your vulnerabilities — and how to fix them.'
+      }
+    },
+    {
+      id: 'planning',
+      number: '02',
+      title: 'Planning',
+      description: 'Development of customized security strategy based on your specific needs.',
+      details: {
+        covers: [
+          'Custom Security Strategy: Tailored to your business size, industry, risk level, and compliance requirements.',
+          'Risk Prioritization: Focuses on what matters most — critical assets, sensitive data, and high-risk vectors.',
+          'Policy Design: Help writing or refining cybersecurity policies, access rules, and incident response plans.',
+          'Technology Stack Recommendation: Suggests tools and platforms that fit your goals and budget.'
+        ],
+        prompt: 'A one-size-fits-all plan won\'t protect you. We craft a security strategy based on your unique systems, threats, and priorities. It\'s not just about buying tools — it\'s about making smart choices that work for you.'
+      }
+    },
+    {
+      id: 'implementation',
+      number: '03',
+      title: 'Implementation',
+      description: 'Deployment of security measures and protective systems across your infrastructure.',
+      details: {
+        covers: [
+          'Firewall & Endpoint Security Setup: Configure protection on all endpoints and network access points.',
+          'Encryption & Access Controls: Deploy tools for data protection and enforce identity verification.',
+          'Security Software Integration: We install and integrate antivirus, monitoring tools, VPNs, or SIEMs based on the plan.',
+          'User Training (Optional): Educate your team on safe practices to prevent human errors.'
+        ],
+        prompt: 'Security only works when it\'s actually in place. We\'ll help you turn your strategy into action by installing and configuring the right tools — the right way. From firewall rules to employee awareness, we handle it.'
+      }
+    },
+    {
+      id: 'monitoring',
+      number: '04',
+      title: 'Monitoring',
+      description: 'Continuous monitoring and maintenance to ensure ongoing protection.',
+      details: {
+        covers: [
+          'Real-Time Threat Detection: Systems watch for breaches, unusual behavior, and suspicious traffic 24/7.',
+          'Log Analysis & Alerts: Review system logs to catch incidents early and respond fast.',
+          'Patch & Update Management: Keep software and security tools up to date to close off new vulnerabilities.',
+          'Incident Response Support: Ready to act if something goes wrong — minimizing damage and restoring normalcy.'
+        ],
+        prompt: 'Security isn\'t a one-time job. Threats evolve. We stay on watch. Our continuous monitoring and maintenance keep you protected — even while you sleep.'
+      }
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -57,35 +174,58 @@ const CyberSecurityLanding = () => {
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-card rounded-xl p-8 border border-border hover:border-primary/50 transition-colors shadow-sm">
-              <div className="bg-primary/20 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
-                <Shield className="h-8 w-8 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold mb-4">Data Protection</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Advanced encryption and security protocols to protect your sensitive business data from unauthorized access.
-              </p>
-            </div>
-            
-            <div className="bg-card rounded-xl p-8 border border-border hover:border-primary/50 transition-colors shadow-sm">
-              <div className="bg-primary/20 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
-                <Monitor className="h-8 w-8 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold mb-4">Network Security</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Comprehensive network monitoring and protection against intrusions and malicious activities.
-              </p>
-            </div>
-            
-            <div className="bg-card rounded-xl p-8 border border-border hover:border-primary/50 transition-colors shadow-sm">
-              <div className="bg-primary/20 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
-                <Database className="h-8 w-8 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold mb-4">Backup Solutions</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Reliable backup and recovery systems to ensure your data is always safe and accessible.
-              </p>
-            </div>
+            {services.map((service) => {
+              const IconComponent = service.icon;
+              const isExpanded = expandedService === service.id;
+              
+              return (
+                <div key={service.id} className="bg-card rounded-xl border border-border hover:border-primary/50 transition-colors shadow-sm">
+                  <div className="p-8">
+                    <div className="bg-primary/20 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
+                      <IconComponent className="h-8 w-8 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-semibold mb-4">{service.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed mb-4">
+                      {service.description}
+                    </p>
+                    
+                    <button
+                      onClick={() => toggleService(service.id)}
+                      className="inline-flex items-center text-primary hover:text-primary/80 transition-colors"
+                    >
+                      Learn More
+                      {isExpanded ? (
+                        <ChevronUp className="ml-1 h-4 w-4" />
+                      ) : (
+                        <ChevronDown className="ml-1 h-4 w-4" />
+                      )}
+                    </button>
+                  </div>
+                  
+                  {isExpanded && (
+                    <div className="px-8 pb-8 border-t border-border/50">
+                      <div className="pt-6">
+                        <h4 className="font-semibold mb-4">What it covers:</h4>
+                        <ul className="space-y-3 mb-6">
+                          {service.details.covers.map((item, index) => (
+                            <li key={index} className="text-sm text-muted-foreground">
+                              • {item}
+                            </li>
+                          ))}
+                        </ul>
+                        
+                        <div className="bg-primary/5 rounded-lg p-4">
+                          <p className="text-sm font-medium text-primary mb-2">🛡️ Why Choose This Service?</p>
+                          <p className="text-sm text-muted-foreground leading-relaxed">
+                            {service.details.prompt}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -102,45 +242,53 @@ const CyberSecurityLanding = () => {
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="bg-primary/20 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl font-bold text-primary">01</span>
-              </div>
-              <h3 className="text-xl font-semibold mb-4">Assessment</h3>
-              <p className="text-muted-foreground">
-                Comprehensive security audit and vulnerability assessment of your systems.
-              </p>
-            </div>
-            
-            <div className="text-center">
-              <div className="bg-primary/20 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl font-bold text-primary">02</span>
-              </div>
-              <h3 className="text-xl font-semibold mb-4">Planning</h3>
-              <p className="text-muted-foreground">
-                Development of customized security strategy based on your specific needs.
-              </p>
-            </div>
-            
-            <div className="text-center">
-              <div className="bg-primary/20 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl font-bold text-primary">03</span>
-              </div>
-              <h3 className="text-xl font-semibold mb-4">Implementation</h3>
-              <p className="text-muted-foreground">
-                Deployment of security measures and protective systems across your infrastructure.
-              </p>
-            </div>
-            
-            <div className="text-center">
-              <div className="bg-primary/20 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl font-bold text-primary">04</span>
-              </div>
-              <h3 className="text-xl font-semibold mb-4">Monitoring</h3>
-              <p className="text-muted-foreground">
-                Continuous monitoring and maintenance to ensure ongoing protection.
-              </p>
-            </div>
+            {procedures.map((procedure) => {
+              const isExpanded = expandedService === procedure.id;
+              
+              return (
+                <div key={procedure.id} className="text-center">
+                  <div className="bg-primary/20 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <span className="text-2xl font-bold text-primary">{procedure.number}</span>
+                  </div>
+                  <h3 className="text-xl font-semibold mb-4">{procedure.title}</h3>
+                  <p className="text-muted-foreground mb-4">
+                    {procedure.description}
+                  </p>
+                  
+                  <button
+                    onClick={() => toggleService(procedure.id)}
+                    className="inline-flex items-center text-primary hover:text-primary/80 transition-colors text-sm"
+                  >
+                    Learn More
+                    {isExpanded ? (
+                      <ChevronUp className="ml-1 h-4 w-4" />
+                    ) : (
+                      <ChevronDown className="ml-1 h-4 w-4" />
+                    )}
+                  </button>
+                  
+                  {isExpanded && (
+                    <div className="mt-6 text-left bg-card rounded-lg p-4 border border-border">
+                      <h4 className="font-semibold mb-3 text-center">What it covers:</h4>
+                      <ul className="space-y-2 mb-4">
+                        {procedure.details.covers.map((item, index) => (
+                          <li key={index} className="text-sm text-muted-foreground">
+                            • {item}
+                          </li>
+                        ))}
+                      </ul>
+                      
+                      <div className="bg-primary/5 rounded-lg p-3">
+                        <p className="text-xs font-medium text-primary mb-2">🧭 Our Approach:</p>
+                        <p className="text-xs text-muted-foreground leading-relaxed">
+                          {procedure.details.prompt}
+                        </p>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

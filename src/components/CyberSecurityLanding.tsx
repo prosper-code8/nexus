@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Shield, Lock, Monitor, Database, Users, CheckCircle, ArrowRight, Menu, X, Globe, Mail, Phone, MapPin, ChevronDown, ChevronUp, Zap, Eye, Server } from 'lucide-react';
 import NavigationBar from './NavigationBar';
@@ -171,8 +170,8 @@ const CyberSecurityLanding = () => {
             <div className="relative">
               <div className="glass-card p-8 rounded-3xl">
                 <img 
-                  src="/lovable-uploads/a385e0ce-c704-4f5d-a1f9-9731400b1b59.png" 
-                  alt="Cybersecurity Threat" 
+                  src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=400&fit=crop" 
+                  alt="Cybersecurity Protection" 
                   className="w-full h-auto rounded-2xl"
                 />
               </div>

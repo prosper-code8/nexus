@@ -1,6 +1,6 @@
 # Welcome to my project
 
-## Project info
+## Project url https://nexus-sooty-three.vercel.app/
 
 
 ```sh

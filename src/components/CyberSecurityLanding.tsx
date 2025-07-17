@@ -392,8 +392,8 @@ const CyberSecurityLanding = () => {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { name: 'Prosper Mbofana', role: 'Founder', initials: 'PM' },
-              { name: 'Panashe', role: 'Partner', initials: 'P' },
+              { name: 'Prosper Mbofana', role: 'Founder and CEO', initials: 'PM' },
+              { name: 'Panashe Muza', role: 'Partner', initials: 'P' },
               { name: 'Gift', role: 'Partner', initials: 'G' },
               { name: 'Esililo', role: 'Partner', initials: 'E' }
             ].map((member, index) => (

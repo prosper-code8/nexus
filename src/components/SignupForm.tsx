@@ -13,9 +13,9 @@ const SignupForm = () => {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [signups] = useState([
-    { name: 'Alex Johnson', email: 'alex@email.com', reason: 'Career transition to cybersecurity' },
-    { name: 'Sarah Davis', email: 'sarah@email.com', reason: 'Enhance current IT skills' },
-    { name: 'Mike Chen', email: 'mike@email.com', reason: 'Start cybersecurity consultancy' }
+    { name: 'wezi', email: 'wezi@email.com', reason: 'Career transition to cybersecurity' },
+    { name: 'Steve ', email: 'steve@email.com', reason: 'Enhance current IT skills' },
+    { name: 'lenox', email: 'lenox@email.com', reason: 'Start cybersecurity consultancy' }
   ]);
 
   const handleSubmit = (e: React.FormEvent) => {

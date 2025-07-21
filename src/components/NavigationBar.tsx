@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Home, Folder, UserPlus, BarChart3, Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import nexusLogo from '../assets/nexus-logo.png';
 
 const NavigationBar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -28,8 +29,8 @@ const NavigationBar = () => {
           {/* Logo */}
           <div className="flex items-center space-x-3">
             <img 
-              src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=40&h=40&fit=crop" 
-              alt="Nexus Solutions logo" 
+              src={nexusLogo} 
+              alt="NEXUS logo" 
               className="w-8 h-8 rounded"
             />
             <Link to="/" className="text-xl font-bold text-foreground hover:text-primary transition-colors">

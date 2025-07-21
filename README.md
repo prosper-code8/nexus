@@ -1,6 +1,6 @@
 # Welcome to my project
 
-## Project url https://nexus-sooty-three.vercel.app/
+## Project url https://nexus-ten-phi.vercel.app/
 
 
 ```sh
